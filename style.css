@@ -1,0 +1,254 @@
+/* google font import */
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Yellowtail&display=swap');
+
+/* CSS variables for rest of the page */
+:root {
+  --primaryColor: #fff;
+  --secondaryColor: #000;
+  --navColor1: #21292c;
+  --navColor2: #aa3e39;
+  --navColor3: #aa6e39;
+  --navColor4: #236267;
+  --navColor5: #2c8437;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #000;
+  font-family: Courgette,sans-serif;
+
+}
+/* ovarlay */
+.overlay{
+  background: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 9;
+  width: 100vw;
+  height: 100vh;
+  /* opacity: 0.5; */
+  transform: translateX(-100vw);
+}
+.overlay-slide-in{
+  transition: all 0.4s ease-in-out;
+  transform: translateX(0);
+}
+.overlay-slide-out{
+  transition: all 0.4s ease-in-out;
+  transform: translateX(-100vw);
+}
+
+/* --- Navigation Menu ------------------------------ */
+nav{
+  height: 100%;
+  width: 100%;
+}
+nav ul{
+  padding: 0px;
+  margin: 0px;
+  height: 100%;
+  width: 100%;
+  list-style: none;
+}
+nav ul li{
+  height: 20%;
+  width: 100%;
+}
+nav ul li a{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: var(--primaryColor);
+}
+nav ul li a:hover{
+  transform: scale(1.5);
+}
+nav ul li a::before{
+  content: '';
+  width: 25vw;
+  height: 3px;
+  background: var(--primaryColor);
+  position: absolute;
+  left: 0;
+  opacity: 0;
+}
+nav ul li a:hover::before{
+  opacity: 1;
+}
+nav ul li:nth-of-type(1){
+  background: var(--navColor1);
+}
+nav ul li:nth-of-type(2){
+  background: var(--navColor2);
+}
+nav ul li:nth-of-type(3){
+  background: var(--navColor3);
+}
+nav ul li:nth-of-type(4){
+  background: var(--navColor4);
+}
+nav ul li:nth-of-type(5){
+  background: var(--navColor5);
+}
+
+/* slide in for each anchor elements */
+.slide-in1{
+  animation: flip-in 0.4s linear 0.1s both;
+}
+.slide-in2{
+  animation: flip-in 0.4s linear 0.2s both;
+}
+.slide-in3{
+  animation: flip-in 0.4s linear 0.3s both;
+}
+.slide-in4{
+  animation: flip-in 0.4s linear 0.4s both;
+}
+.slide-in5{
+  animation: flip-in 0.4s linear 0.5s both;
+}
+
+@keyframes flip-in {
+  from{
+    transform: translateX(-100%);
+  }
+  to{
+    transform: translateX(0);
+  }
+}
+
+/* slide out for each anchor elements */
+.slide-out1{
+  animation: flip-out 0.3s linear 0.5s both;
+}
+.slide-out2{
+  animation: flip-out 0.3s linear 0.4s both;
+}
+.slide-out3{
+  animation: flip-out 0.3s linear 0.3s both;
+}
+.slide-out4{
+  animation: flip-out 0.3s linear 0.2s both;
+}
+.slide-out5{
+  animation: flip-out 0.3s linear 0.1s both;
+}
+
+@keyframes flip-out {
+  from{
+    transform: translateX(0);
+  }
+  to{
+    transform: translateX(-100%);
+  }
+}
+
+/* --- Menu Bars ------------------------------------ */
+
+.menu-bars {
+  position: fixed;
+  top: 1rem;
+  right: 2rem;
+  z-index: 10;
+  display: inline;
+  cursor: pointer;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+  width: 35px;
+  height: 2px;
+  background-color: #fff;
+  margin: 8px 0;
+  transition: 0.4s;
+}
+
+/* Rotate first bar */
+.change .bar1 {
+  transform: rotate(-45deg) translate(-7px, 8px);
+}
+
+/* Fade out the second bar */
+.change .bar2 {
+  opacity: 0;
+}
+
+/* Rotate last bar */
+.change .bar3 {
+  transform: rotate(45deg) translate(-6px, -8px);
+}
+
+/* --- Sections ------------------------------------ */
+
+section {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--primaryColor);
+}
+
+section#home {
+  background-image: url("https://images.unsplash.com/photo-1576153192396-180ecef2a715?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80");
+  background-size: cover;
+  background-position: center center;
+}
+
+section#home h1 {
+  font-family: Yellowtail,sans-serif;
+  position: absolute;
+  z-index: 2;
+  top: 3rem;
+  left: 1.5rem;
+  font-size: 1.2em;
+  padding-bottom: 5px;
+  color: var(--secondaryColor);
+}
+section#home h1:hover{
+  filter: brightness(110%);
+  border-bottom: 2px solid var(--secondaryColor);
+}
+
+section#about {
+  background-color: var(--navColor2);
+}
+
+section#skills {
+  background-color: var(--navColor3);
+}
+
+section#projects {
+  background-color: var(--navColor4);
+}
+
+section#contact {
+  background-color: var(--navColor5);
+}
+
+/* Media Query: Large Smartphone (Vertical) */
+@media (max-width: 600px) {
+  section#home h1 {
+    top: 2.1rem;
+    left: 0.8rem;
+    font-size: 1em;
+  }
+
+  .menu-bars {
+    top: 0.5rem;
+    right: 1rem;
+  }
+}
